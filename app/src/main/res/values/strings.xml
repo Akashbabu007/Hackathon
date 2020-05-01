@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Hackathon</string>
+    <string name="Choose">What do you want?</string>
+    <string name="content_vegetables">This is a logo for vegetables in main activity</string>
+    <string name="content_groceries">This is a logo for groceries in main activity</string>
+    <string name="groceries">GROCIERS</string>
+    <string name="vegetables">VEGETABLES</string>
+</resources>
