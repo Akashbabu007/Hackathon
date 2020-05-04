@@ -3,6 +3,22 @@
     <string name="Choose">What do you want?</string>
     <string name="content_vegetables">This is a logo for vegetables in main activity</string>
     <string name="content_groceries">This is a logo for groceries in main activity</string>
-    <string name="groceries">GROCIERS</string>
+    <string name="groceries">GROCERIES</string>
     <string name="vegetables">VEGETABLES</string>
+    <string name="title_activity_appointment">Appointment</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+      <!-- Time Slots for the spinner -->
+    <string name="time">Time Slot</string>
+    <string name="time0">Choose a Time Slot</string>
+    <string name="time1">9 am - 10 am</string>
+    <string name="time2">10 am - 11 am</string>
+    <string name="time3">11 am - 12 pm</string>
+    <string name="time4">12 pm -1 pm</string>
+
+
+
 </resources>

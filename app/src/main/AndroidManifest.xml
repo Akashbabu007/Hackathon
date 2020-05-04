@@ -2,14 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hackathon"
     android:versionCode="1"
-    android:versionName="1.0"
-    >
+    android:versionName="1.0">
 
+    <uses-sdk
 
-
+        android:targetSdkVersion="22" />
     <!-- Access Location -->
-    <uses-permission  android:name="android.permission.ACCESS_FINE_LOCATION" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Appointment"
+            android:label="@string/title_activity_appointment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <uses-library android:name="com.google.android.maps" />
+
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
@@ -28,23 +34,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".VegetablesActivity"></activity>
+        <activity android:name=".GroceriesActivity"></activity>
 
-        </activity>
-        <activity android:name=".VegetablesActivity">
-
-        </activity>
-        <activity android:name=".GroceriesActivity">
-
-        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBSvQNxKpUKjyhWFijllkg6Amve3I82Q5w"/>
-
+            android:value="AIzaSyBSvQNxKpUKjyhWFijllkg6Amve3I82Q5w" />
     </application>
-    <!-- Internet Permissions -->
-
-
-    <!-- Access Location -->
 
 </manifest>

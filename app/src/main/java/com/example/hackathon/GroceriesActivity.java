@@ -204,7 +204,7 @@ public class GroceriesActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(GroceriesActivity.this);
-            pDialog.setMessage(Html.fromHtml("<b>Search</b><br/>Loading Places..."));
+            pDialog.setMessage(Html.fromHtml("<b>Search</b><br/>Loading Super Markets and Stores..."));
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -285,6 +285,18 @@ public class GroceriesActivity extends Activity {
 
                             // Adding data into listview
                             lv.setAdapter(adapter);
+                            lv.setOnItemClickListener(new OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                    Intent intent= new Intent(getApplicationContext(),Appointment.class);
+                                    //HashMap<String, String> placeshashmap= (HashMap<String, String>) adapterView.getItemAtPosition(i);
+                                    HashMap<String, String> n= placesListItems.get(i);
+                                    String a=n.toString();//Getting the name of the list item
+                                    intent.putExtra("name",a);
+                                    startActivity(intent);
+
+                                }
+                            });
                         }
                     }
                     else if(status.equals("ZERO_RESULTS")){
