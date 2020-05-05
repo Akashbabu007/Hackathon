@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Hackathon</string>
+
     <string name="Choose">What do you want?</string>
-    <string name="content_vegetables">This is a logo for vegetables in main activity</string>
-    <string name="content_groceries">This is a logo for groceries in main activity</string>
-    <string name="groceries">GROCERIES</string>
-    <string name="vegetables">VEGETABLES</string>
+    <string name="app_name">Find Mart</string>
+    <string name="content_splash">Image of splash screen</string>
+    <string name="content_vegetable">Vegetable image</string>
+    <string name="content_grocery">Grocery Image</string>
+    <string name="button_grocery"><![CDATA[>]]></string>
+    <string name="button_vegetables"><![CDATA[>]]></string>
     <string name="title_activity_appointment">Appointment</string>
     <!-- Strings used for fragments for navigation -->
 
