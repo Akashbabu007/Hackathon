@@ -21,7 +21,7 @@ public class GooglePlaces {
     private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 
     // Google API Key
-    private static final String API_KEY = "AIzaSyBSvQNxKpUKjyhWFijllkg6Amve3I82Q5w";
+    private static final String API_KEY = "AIzaSyBcnfz1wOAsO_4nXzuAJ0hCtw3SLzAjb20";
 
     // Google Places serach url's
     private static final String PLACES_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
@@ -76,7 +76,7 @@ public class GooglePlaces {
      * @param reference - reference id of place
      *                 - which you will get in search api request
      * */
-    /*
+
     public PlaceDetails getPlaceDetails(String reference) throws Exception {
         try {
 
@@ -96,7 +96,7 @@ public class GooglePlaces {
             throw e;
         }
     }
-*/
+
     /**
      * Creating http request Factory
      * */

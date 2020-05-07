@@ -7,20 +7,24 @@
     <string name="content_grocery">Grocery Image</string>
     <string name="button_grocery"><![CDATA[>]]></string>
     <string name="button_vegetables"><![CDATA[>]]></string>
-    <string name="title_activity_appointment">Appointment</string>
+    <string name="title_activity_appointment">Token Form</string>
     <!-- Strings used for fragments for navigation -->
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-      <!-- Time Slots for the spinner -->
+    <!-- Time Slots for the spinner -->
     <string name="time">Time Slot</string>
     <string name="time0">Choose a Time Slot</string>
     <string name="time1">9 am - 10 am</string>
     <string name="time2">10 am - 11 am</string>
     <string name="time3">11 am - 12 pm</string>
     <string name="time4">12 pm -1 pm</string>
-
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_name_hints">Customer Name</string>
+    <string name="show_details_button">SHOW DETAILS</string>
+    <string name="submit_button">SUBMIT</string>
+    <string name="title_activity_single_place">Place Details</string>
 
 
 </resources>

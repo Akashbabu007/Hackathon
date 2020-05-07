@@ -14,7 +14,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -84,6 +83,9 @@ public class GroceriesActivity extends Activity {
             return;
         }
 
+        checkPermissions();
+        requestPermissions();
+        isLocationEnabled();
         // creating GPS Class object
         gps = new GPSTracker(this);
 
@@ -134,24 +136,24 @@ public class GroceriesActivity extends Activity {
          * ListItem click event
          * On selecting a listitem SinglePlaceActivity is launched
          * */
-        lv.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // getting values from selected ListItem
-               String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
-
-                // Starting new intent
-                Intent in = new Intent(getApplicationContext(),
-                       MainActivity.class);
-
-                // Sending place refrence id to single place activity
-                // place refrence id used to get "Place full details"
-                in.putExtra(KEY_REFERENCE, reference);
-                startActivity(in);
-            }
-        });
+//        lv.setOnItemClickListener(new OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // getting values from selected ListItem
+//               String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
+//
+//                // Starting new intent
+//                Intent in = new Intent(getApplicationContext(),
+//                       MainActivity.class);
+//
+//                // Sending place refrence id to single place activity
+//                // place refrence id used to get "Place full details"
+//                in.putExtra(KEY_REFERENCE, reference);
+//                startActivity(in);
+//            }
+//        });
     }
     private boolean checkPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
@@ -289,10 +291,12 @@ public class GroceriesActivity extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                     Intent intent= new Intent(getApplicationContext(),Appointment.class);
+                                    String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
                                     //HashMap<String, String> placeshashmap= (HashMap<String, String>) adapterView.getItemAtPosition(i);
                                     HashMap<String, String> n= placesListItems.get(i);
                                     String a=n.toString();//Getting the name of the list item
                                     intent.putExtra("name",a);
+                                    intent.putExtra(KEY_REFERENCE, reference);
                                     startActivity(intent);
 
                                 }
