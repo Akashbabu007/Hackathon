@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "547839988116",
+    "firebase_url": "https://corona-hackathon-275913.firebaseio.com",
+    "project_id": "corona-hackathon-275913",
+    "storage_bucket": "corona-hackathon-275913.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547839988116:android:cebe85ac79547deedaff81",
+        "android_client_info": {
+          "package_name": "com.example.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547839988116-a6h3sivkabluereno08onqol4oj6tbo5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVrHuAkON1yZL764FsKZMJSL1tDIr8rTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547839988116-a6h3sivkabluereno08onqol4oj6tbo5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
