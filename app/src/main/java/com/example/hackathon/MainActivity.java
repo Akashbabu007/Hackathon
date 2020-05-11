@@ -1,6 +1,7 @@
 package com.example.hackathon;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //id for groceries image and vegetables image
-        Button groceries = findViewById(R.id.button_grocery);
-        Button vegetables = findViewById(R.id.button_vegetables);
+        CardView groceries = findViewById(R.id.button_grocery);
+        CardView vegetables = findViewById(R.id.button_vegetables);
 
         //intent for grociers image to groceries activity
         groceries.setOnClickListener(new View.OnClickListener() {

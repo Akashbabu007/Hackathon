@@ -1,62 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Yellow"
-    tools:context=".MainActivity">
+    android:background="@drawable/gradient_background">
 
-
-    <ImageView
-        android:id="@+id/grocery_image"
-        android:layout_width="159dp"
-        android:layout_height="177dp"
-        app:layout_constraintBottom_toTopOf="@+id/vegetable_image"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_grocery"
+        android:layout_width="324dp"
+        android:layout_height="99dp"
+        app:cardBackgroundColor="@color/lightwhite"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/noun_groceries_2768498"
-        android:contentDescription="@string/content_grocery" />
+        app:layout_constraintVertical_bias="0.071"
+        tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/vegetable_image"
-        android:layout_width="156dp"
-        android:layout_height="177dp"
-        android:layout_marginBottom="144dp"
-        android:contentDescription="@string/content_vegetable"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/noun_vegetable_3047936" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button_grocery"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:background="@color/Yellow"
-        android:text="@string/button_grocery"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/vegetable_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grocery_image"
-        app:layout_constraintVertical_bias="0.0" />
+            <ImageView
+                android:id="@+id/grocery_iv"
+                android:layout_width="72dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/content_grocery"
+                android:src="@drawable/noun_groceries_2768498"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/grocery_tv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+            <TextView
+                android:id="@+id/grocery_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="124dp"
+                android:text="@string/grocery_text"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/grocery_cd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_details"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.129"
+                app:layout_constraintStart_toEndOf="@+id/grocery_iv"
+                app:layout_constraintTop_toBottomOf="@+id/grocery_tv"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/button_vegetables"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:text="@string/button_vegetables"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:background="@color/Yellow"
+        android:layout_width="324dp"
+        android:layout_height="99dp"
+        app:cardBackgroundColor="@color/lightwhite"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vegetable_image"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button_grocery"
+        app:layout_constraintVertical_bias="0.065">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/vegetables_iv"
+                android:layout_width="72dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/content_grocery"
+                android:src="@drawable/noun_vegetable_3047936"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/vegetables_tv"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/vegetables_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="108dp"
+                android:text="@string/vegetable_text"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/vegetables_cd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_details"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.129"
+                app:layout_constraintStart_toEndOf="@+id/vegetables_iv"
+                app:layout_constraintTop_toBottomOf="@+id/vegetables_tv"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

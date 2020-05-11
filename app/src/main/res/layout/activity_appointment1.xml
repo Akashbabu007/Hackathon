@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Yellow"
+    android:background="@drawable/gradient_background"
     tools:context=".Appointment">
-
 
 
     <EditText
@@ -19,37 +18,26 @@
         android:ems="10"
         android:hint="@string/customer_name"
         android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.511" />
 
     <DatePicker
         android:id="@+id/date"
         android:layout_width="324dp"
         android:layout_height="196dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/spinner_rounded"
+        android:calendarTextColor="@color/black"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
-        android:calendarTextColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/timeslotspinner"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/timeslotspinner"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="316dp"
-        android:entries="@array/timeslotlist"
-        android:prompt="@string/time"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -58,10 +46,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
         android:text="@string/show_details_button"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@+id/submit_button"
         app:layout_constraintEnd_toStartOf="@+id/submit_button"
-        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -71,28 +59,63 @@
         android:layout_marginEnd="64dp"
         android:background="@drawable/rounded_button"
         android:text="@string/submit_button"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeslotspinner"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="0.703" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="322dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="240dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/timeslotspinner"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/timeslotlist"
+                android:prompt="@string/time"
+                android:spinnerMode="dropdown"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <EditText
         android:id="@+id/phone_number_et"
-        android:layout_width="317dp"
-        android:layout_height="51dp"
+        android:layout_width="347dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="phone"
         android:hint="@string/phone_no"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/show_details_button"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeslotspinner"
-        app:layout_constraintVertical_bias="0.503"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="0.278" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

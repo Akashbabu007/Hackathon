@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     android:padding="10dip">
 
     <!-- Name Label -->
@@ -11,12 +12,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"
+        android:textColor="@color/white"
         android:layout_marginBottom="5dip"
         android:textStyle="bold"/>
 
     <!--  Name Value -->
     <TextView
         android:id="@+id/name"
+        android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -26,12 +29,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dip"
+        android:textColor="@color/white"
         android:layout_marginBottom="5dip"
         android:textStyle="bold"/>
 
     <!--  Address Value -->
     <TextView
         android:id="@+id/address"
+        android:textColor="@color/white"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -40,6 +45,7 @@
         android:id="@+id/phone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginTop="10dip"/>
 
 
@@ -48,13 +54,16 @@
         android:id="@+id/location"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_marginTop="15dip"
         android:layout_marginBottom="5dip"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_marginTop="10sp"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:text="Show Places On Map"
         android:layout_gravity="center"/>

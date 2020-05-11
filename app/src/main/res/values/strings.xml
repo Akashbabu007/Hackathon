@@ -25,7 +25,11 @@
     <string name="show_details_button">SHOW DETAILS</string>
     <string name="submit_button">SUBMIT</string>
     <string name="title_activity_single_place">Place Details</string>
-    <string name="phone_no">Phone number</string>
+    <string name="grocery_text">Groceries</string>
+    <string name="check_details">Tap to check details</string>
+    <string name="vegetable_text">Vegetables</string>
+    <string name="places_list">Places</string>
+    <string name="phone_no">Phone Number</string>
 
 
 </resources>

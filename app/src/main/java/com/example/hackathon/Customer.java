@@ -26,7 +26,7 @@ public class Customer {
     public String store;
     public String phoneno;
 
-    public Customer(String name,String date, String timeslot,String store, String phoneno) {
+    public Customer(String name,String date,String timeslot,String store, String phoneno) {
         this.name=name;
         this.date=date;
         this.timeslot=timeslot;
