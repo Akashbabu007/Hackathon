@@ -1,7 +1,6 @@
 package com.example.hackathon;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,11 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
-import java.io.Console;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -54,9 +48,7 @@ public class Appointment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment1);
-//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-//        myToolbar.setTitle("Token Form");
-//        myToolbar.setTitleTextColor(Color.WHITE);
+
         Intent intent = getIntent();
         final String reference = intent.getStringExtra(KEY_REFERENCE);
      storename=intent.getStringExtra("name"); //Getting the store name from the Groceries Activity
@@ -70,22 +62,22 @@ public class Appointment extends AppCompatActivity {
         Button submitbutton = (Button) findViewById(R.id.submit_button);
         customernameet=(EditText)findViewById(R.id.customeret);
         date=(DatePicker)findViewById(R.id.date);
-        phonenumberet=(EditText)findViewById(R.id.phone_number_et);
+        phonenumberet=(EditText)findViewById(R.id.phone_number);
         timeslotspinner = (Spinner) findViewById(R.id.timeslotspinner); //Spinner
         timeslotspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                      @Override
-                                                      public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-                                                          if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
-                                                          } else {
-                                                              String item = parent.getItemAtPosition(position).toString();
-                                                              Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
-                                                          }
-                                                      }
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+                }
+            }
 
-                                                      @Override
-                                                      public void onNothingSelected(AdapterView<?> adapterView) {
-                                                      }
-                                                  }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        }
         );
         showDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +129,7 @@ public class Appointment extends AppCompatActivity {
                 if(name.equals("") || time.equals("Choose a time slot") || phonenumber.equals("")) {
                     Toast.makeText(getApplicationContext(),"Enter all the Credentials",Toast.LENGTH_LONG).show();
                 }
-                if(phonenumber.length() != 10) {
+                else if(phonenumber.length() != 10) {
                     Toast.makeText(getApplicationContext(),"Invalid phone number",Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -159,6 +151,9 @@ public class Appointment extends AppCompatActivity {
                             else {
                                 Toast.makeText(getApplicationContext(),"Inserted successfully",Toast.LENGTH_LONG).show();
                                 firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
+                                Intent intent = new Intent(Appointment.this,TokenActivity.class);
+                                startActivity(intent);
+
                             }
                         }
 
@@ -168,6 +163,7 @@ public class Appointment extends AppCompatActivity {
                         }
                     });
                 }
+
               // addUserChangeListener(store,strDate,time);
 
                // MongoClientURI uri = new MongoClientURI("mongodb+srv://Aadhitya:Tn58ac8308%40@cluster0-dnezo.mongodb.net/SuperMarket?retryWrites=true&w=majority");

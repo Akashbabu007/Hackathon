@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SinglePlaceActivity extends Activity {
@@ -25,8 +26,14 @@ public class SinglePlaceActivity extends Activity {
     // Place Details
     PlaceDetails placeDetails;
 
+    PlacesList nearPlaces;
+
     // Progress dialog
     ProgressDialog pDialog;
+
+    GPSTracker gps;
+
+    Button map;
 
     // KEY Strings
     public static String KEY_REFERENCE = "reference"; // id of the place
@@ -44,6 +51,25 @@ public class SinglePlaceActivity extends Activity {
 
         // Calling a Async Background thread
         new LoadSinglePlaceDetails().execute(reference);
+        map = findViewById(R.id.button2);
+        gps = new GPSTracker(this);
+
+//           map.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View arg0) {
+//                Intent i = new Intent(getApplicationContext(),
+//                       PlacesMapActivity.class);
+//                // Sending user current geo location
+//                i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
+//                i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
+//
+//                // passing near places to map activity
+//                i.putExtra("near_places", nearPlaces);
+//                // staring activity
+//                startActivity(i);
+//            }
+//        });
     }
 
 

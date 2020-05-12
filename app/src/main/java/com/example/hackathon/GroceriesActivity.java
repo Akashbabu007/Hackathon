@@ -1,8 +1,5 @@
 package com.example.hackathon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -24,6 +21,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.core.app.ActivityCompat;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class GroceriesActivity extends Activity {
@@ -69,7 +69,9 @@ public class GroceriesActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groceries);
-
+//        Toolbar myToolbar = (Toolbar) findViewById(R.id.grocery_toolbar);
+//        myToolbar.setTitle("Token Form");
+//        myToolbar.setTitleTextColor(Color.WHITE);
         cd = new ConnectionDetector(getApplicationContext());
 
         // Check if Internet present
@@ -114,22 +116,7 @@ public class GroceriesActivity extends Activity {
         new LoadPlaces().execute();
 
         /** Button click event for shown on map */
-     /*  btnShowOnMap.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View arg0) {
-                Intent i = new Intent(getApplicationContext(),
-                       GroceriesActivity.class);
-                // Sending user current geo location
-                i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
-                i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
-
-                // passing near places to map activity
-                i.putExtra("near_places", nearPlaces);
-                // staring activity
-                startActivity(i);
-            }
-        });*/
 
 
         /**
