@@ -1,7 +1,7 @@
 <resources>
 
     <string name="Choose">What do you want?</string>
-    <string name="app_name">Find Mart</string>
+    <string name="app_name">Fix An Appointment</string>
     <string name="content_splash">Image of splash screen</string>
     <string name="content_vegetable">Vegetable image</string>
     <string name="content_grocery">Grocery Image</string>
@@ -16,10 +16,10 @@
     <!-- Time Slots for the spinner -->
     <string name="time">Time Slot</string>
     <string name="time0">Choose a Time Slot</string>
-    <string name="time1">9 am - 10 am</string>
-    <string name="time2">10 am - 11 am</string>
-    <string name="time3">11 am - 12 pm</string>
-    <string name="time4">12 pm -1 pm</string>
+    <string name="time1">9 am to 10 am</string>
+    <string name="time2">10 am to 11 am</string>
+    <string name="time3">11 am to 12 pm</string>
+    <string name="time4">12 pm to 1 pm</string>
     <string name="customer_name">Enter customer name</string>
     <string name="customer_name_hints">Customer Name</string>
     <string name="show_details_button">SHOW DETAILS</string>
