@@ -97,7 +97,7 @@ public class SinglePlaceActivity extends Activity {
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 
                 startActivity(intent);
-               // i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
+                // i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
                 //i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
 
                 // passing near places to map activity

@@ -56,7 +56,6 @@ public class Appointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment1);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
-        myToolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
         myToolbar.setTitle("Token Form");
         myToolbar.setTitleTextColor(Color.WHITE);
 
