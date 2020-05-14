@@ -46,8 +46,8 @@ public class SplashScreen extends AppCompatActivity {
     private class LogoLauncher extends Thread {
         public void run() {
             try {
-                int SLEEP_TIMER = 2;
-                sleep(1250 * SLEEP_TIMER);
+                int SLEEP_TIMER = 5;
+                sleep(1000 * SLEEP_TIMER);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

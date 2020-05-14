@@ -75,19 +75,19 @@ public class Appointment extends AppCompatActivity {
         phonenumberet=(EditText)findViewById(R.id.phone_number);
         timeslotspinner = (Spinner) findViewById(R.id.timeslotspinner); //Spinner
         timeslotspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                      @Override
-                                                      public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-                                                          if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
-                                                          } else {
-                                                              String item = parent.getItemAtPosition(position).toString();
-                                                              Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
-                                                          }
-                                                      }
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
+                } else {
+                    String item = parent.getItemAtPosition(position).toString();
+                    Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+                }
+            }
 
-                                                      @Override
-                                                      public void onNothingSelected(AdapterView<?> adapterView) {
-                                                      }
-                                                  }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        }
         );
         showDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +107,8 @@ public class Appointment extends AppCompatActivity {
 
                 firebaseInstance = FirebaseDatabase.getInstance();
                 firebaseDatabase = firebaseInstance.getReference();
-                final String store=hash1[1];  final String name;
+                final String store=hash1[1].replaceAll("[-#.$:,]","");
+                final String name;
                 if (TextUtils.isEmpty(userId)) {
                     userId = firebaseDatabase.push().getKey();
                 }

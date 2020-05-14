@@ -63,4 +63,6 @@ dependencies {
     implementation files('libs/activation-1.1.1.jar')
     implementation files('libs/anelab-androidsendmail.jar')
 
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.4'
+
 }
