@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -32,6 +33,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,6 +70,10 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_token);
+        /*Toolbar toolbar=findViewById(R.id.toolbars1);
+        toolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        toolbar.setTitle("Token Summary");
+        toolbar.setTitleTextColor(Color.WHITE);*/
 
         Intent intent=getIntent();
         String Name="",Date="",Time="",Phone="",StoreName="";
@@ -473,10 +479,10 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
     }
 
 
-//    public void onBackPressed() {
-//        // super.onBackPressed();
-//        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-//        startActivity(intent);
-//
-//    }
+  public void onBackPressed() {
+        // super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+
+    }
 }

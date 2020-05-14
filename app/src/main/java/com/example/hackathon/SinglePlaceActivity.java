@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -38,6 +39,7 @@ public class SinglePlaceActivity extends Activity {
     GPSTracker gps;
 
     Button map;
+    String latitude,longitude;
 
     // KEY Strings
     public static String KEY_REFERENCE = "reference"; // id of the place
@@ -55,7 +57,7 @@ public class SinglePlaceActivity extends Activity {
         Intent i = getIntent();
 
         // Place referece id
-        String reference = i.getStringExtra(KEY_REFERENCE);
+       final String reference = i.getStringExtra(KEY_REFERENCE);
 
         // Calling a Async Background thread
         new LoadSinglePlaceDetails().execute(reference);
@@ -66,16 +68,42 @@ public class SinglePlaceActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                Intent i = new Intent(getApplicationContext(),
-                       MapsActivity.class);
+                //Intent i = new Intent(getApplicationContext(),
+                //       MapsActivity.class);
                 // Sending user current geo location
-                i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
-                i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
+
+                googlePlaces = new GooglePlaces();
+
+                // Check if used is connected to Internet
+                try {
+                    placeDetails = googlePlaces.getPlaceDetails(reference);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if(placeDetails != null) {
+                    String status = placeDetails.status;
+                    if(status.equals("OK")){
+                        if (placeDetails.result != null) {
+                            latitude = Double.toString(placeDetails.result.geometry.location.lat);
+                            longitude = Double.toString(placeDetails.result.geometry.location.lng);
+                        }
+                        }
+
+                }
+
+                String mapsUri = "http://maps.google.com/maps?q=loc:" + latitude + "," + longitude + " (" + "Label which you want" + ")";
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(mapsUri));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+
+                startActivity(intent);
+               // i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
+                //i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
 
                 // passing near places to map activity
-                i.putExtra("near_places", nearPlaces);
+                //i.putExtra("near_places", nearPlaces);
                 // staring activity
-                startActivity(i);
+                //startActivity(i);
             }
         });
     }
