@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/centre_background">
+    android:background="@drawable/gradient_background">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/button_grocery"
@@ -33,7 +33,7 @@
                 android:layout_height="67dp"
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/content_grocery"
-                android:src="@drawable/noun_groceries_2768498"
+                android:src="@drawable/market"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/grocery_tv"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="124dp"
+                android:layout_marginEnd="72dp"
                 android:text="@string/grocery_text"
                 android:textColor="@color/black"
                 android:textSize="23sp"
@@ -60,7 +60,7 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.129"
+                app:layout_constraintHorizontal_bias="0.157"
                 app:layout_constraintStart_toEndOf="@+id/grocery_iv"
                 app:layout_constraintTop_toBottomOf="@+id/grocery_tv"
                 app:layout_constraintVertical_bias="0.0" />
@@ -93,7 +93,7 @@
                 android:layout_height="67dp"
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/content_grocery"
-                android:src="@drawable/noun_vegetable_3047936"
+                android:src="@drawable/download"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/vegetables_tv"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -104,8 +104,8 @@
                 android:id="@+id/vegetables_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="108dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="64dp"
                 android:text="@string/vegetable_text"
                 android:textColor="@color/black"
                 android:textSize="23sp"

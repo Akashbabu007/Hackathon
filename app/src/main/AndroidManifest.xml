@@ -58,6 +58,11 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".About"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/about"/>
+
         <activity
             android:name=".VegetablesActivity"
             android:label="@string/places_list"

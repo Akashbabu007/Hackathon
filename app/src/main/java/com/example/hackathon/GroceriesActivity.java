@@ -216,7 +216,7 @@ public class GroceriesActivity extends Activity {
                 // If you want all types places make it as null
                 // Check list of types supported by google
                 //
-                String types = "supermarket|store"; // Listing places only cafes, restaurants
+                String types = "supermarket|store|department_store"; // Listing places only cafes, restaurants
 
                 // Radius in meters - increase this value if you don't find any places
                 double radius = 2000; // 1000 meters

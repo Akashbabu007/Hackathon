@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,8 @@ import java.util.Objects;
 public class SplashScreen extends AppCompatActivity {
 
     Animation rotateAnimation;
+    Animation fromtop;
+    TextView text;
     ImageView iconSplash;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +33,21 @@ public class SplashScreen extends AppCompatActivity {
 //        ImageView imageView=  findViewById(R.id.imageView3);
 //        imageView.startAnimation(animation);
 
-        iconSplash = findViewById(R.id.imageView3);
+//        iconSplash = findViewById(R.id.imageView3);
+        text = findViewById(R.id.textView);
 
-        rotateAnimation();
+        fromtop = AnimationUtils.loadAnimation(this,R.anim.fromtopscreen);
+        text.setAnimation(fromtop);
+//        rotateAnimation();
 
         LogoLauncher logolauncher = new LogoLauncher();
         logolauncher.start();
     }
 
-    private void rotateAnimation() {
-        rotateAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate);
-        iconSplash.startAnimation(rotateAnimation);
-    }
+//    private void rotateAnimation() {
+//        rotateAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate);
+//        iconSplash.startAnimation(rotateAnimation);
+//    }
 
     private class LogoLauncher extends Thread {
         public void run() {

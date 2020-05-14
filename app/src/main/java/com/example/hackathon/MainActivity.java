@@ -2,6 +2,9 @@ package com.example.hackathon;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +12,8 @@ import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int TIME_INTERVAL = 2000;
-    private long pressbacktwice ;
+    private long pressbacktwice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         groceries.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,GroceriesActivity.class);
+                Intent intent = new Intent(MainActivity.this, GroceriesActivity.class);
                 startActivity(intent);
             }
         });
@@ -32,10 +36,26 @@ public class MainActivity extends AppCompatActivity {
         vegetables.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,VegetablesActivity.class);
+                Intent intent = new Intent(MainActivity.this, VegetablesActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                startActivity(new Intent(this, About.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 //    @Override
 //    public void onBackPressed() {
@@ -54,6 +74,4 @@ public class MainActivity extends AppCompatActivity {
 //
 //        pressbacktwice = System.currentTimeMillis();
 //    }
-
-
 }
