@@ -33,10 +33,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationCompat.InboxStyle;
@@ -70,10 +70,9 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_token);
-        /*Toolbar toolbar=findViewById(R.id.toolbars1);
-        toolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        Toolbar toolbar=findViewById(R.id.toolbars1);
         toolbar.setTitle("Token Summary");
-        toolbar.setTitleTextColor(Color.WHITE);*/
+        toolbar.setTitleTextColor(Color.WHITE);
 
         Intent intent=getIntent();
         String Name="",Date="",Time="",Phone="",StoreName="";

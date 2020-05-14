@@ -30,10 +30,10 @@
     <string name="vegetable_text">Vegetables</string>
     <string name="places_list">Places</string>
     <string name="phone_no">Phone Number</string>
-    <string name="customer_name_text"><u>Customer Name</u></string>
-    <string name="date"><u>Date</u></string>
-    <string name="phone"><u>Phone</u></string>
-    <string name="timeslot"><u>Timeslot</u></string>
+    <string name="customer_name_text">Customer Name</string>
+    <string name="date">Date</string>
+    <string name="phone">Phone</string>
+    <string name="timeslot">Timeslot</string>
     <string name="date_of_shopping">Date of shopping</string>
     <string name="time_slot_chosen">Time slot chosen</string>
     <string name="shop_name">Shop Name</string>
