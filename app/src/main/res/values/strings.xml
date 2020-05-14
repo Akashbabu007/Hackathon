@@ -42,6 +42,8 @@
     <string name="details">Place Details</string>
     <string name="screenshot">Screenshot</string>
     <string name="about">About</string>
-
+    <string name="about_us_description">This application is meant for maintaining social distancing and as well to get your necessities without any fuzz. </string>
+    <string name="FACEBOOK_ID">https://www.facebook.com/aadhitya.aadhi.9/</string>
+    <string name="GMAIL_ID">aadhitya98@gmail.com</string>
 
 </resources>

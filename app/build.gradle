@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     implementation 'com.google.firebase:firebase-messaging:11.8.0'
     implementation 'com.google.firebase:firebase-database:19.3.0'
-
+    implementation 'com.github.medyo:android-about-page:1.2.5'
 
     implementation files('libs/google-api-client-1.10.3-beta.jar')
     implementation files('libs/google-api-client-android2-1.10.3-beta.jar')
