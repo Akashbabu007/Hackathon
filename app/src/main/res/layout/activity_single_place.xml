@@ -89,7 +89,7 @@
                 android:background="@drawable/centre_button"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"
-                android:text="Show Places On Map"
+                android:text="Show Place On Map"
                 android:layout_gravity="center"/>
 
         </LinearLayout>

@@ -3,7 +3,6 @@ package com.example.hackathon;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -38,23 +37,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public void onBackPressed() {
-
-
-        if (pressbacktwice + TIME_INTERVAL > System.currentTimeMillis())
-        {
-            super.onBackPressed();
-            Intent a = new Intent(Intent.ACTION_MAIN);
-            a.addCategory(Intent.CATEGORY_HOME);
-            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(a);
-            return;
-        }
-        else { Toast.makeText(getBaseContext(), "Tap back button again in order to exit", Toast.LENGTH_SHORT).show(); }
-
-        pressbacktwice = System.currentTimeMillis();
-    }
+//    @Override
+//    public void onBackPressed() {
+//
+//
+//        if (pressbacktwice + TIME_INTERVAL > System.currentTimeMillis())
+//        {
+//            super.onBackPressed();
+//            Intent a = new Intent(Intent.ACTION_MAIN);
+//            a.addCategory(Intent.CATEGORY_HOME);
+//            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(a);
+//            return;
+//        }
+//        else { Toast.makeText(getBaseContext(), "Tap back button again in order to exit", Toast.LENGTH_SHORT).show(); }
+//
+//        pressbacktwice = System.currentTimeMillis();
+//    }
 
 
 }

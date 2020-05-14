@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="52dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
 <androidx.cardview.widget.CardView
     android:layout_gravity="center_horizontal"
     android:layout_marginTop="4dp"
+    app:cardElevation="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <LinearLayout
@@ -24,20 +25,22 @@
         android:layout_height="36dp"
         android:layout_marginTop="3sp"
         android:src="@drawable/ic_place_black_24dp"/>
-    
-    <TextView android:id="@+id/name"
+
+    <TextView
+        android:id="@+id/name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:textStyle="bold"
-        android:textColor="@color/black"
         android:background="@color/white"
-        android:textSize="16sp"/>
+        android:fontFamily="sans-serif-condensed"
+        android:padding="10dip"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </LinearLayout>
 </androidx.cardview.widget.CardView>
     <Space
         android:layout_width="match_parent"
-        android:layout_height="6dp"/>
+        android:layout_height="40dp"/>
 </LinearLayout>
 
 

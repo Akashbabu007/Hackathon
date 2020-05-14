@@ -182,7 +182,6 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
 
@@ -478,12 +477,12 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
     }
 
 
-  public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
-        finish();
-
-
-    }
+//  public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//        startActivity(intent);
+//        finish();
+//
+//
+//    }
 }

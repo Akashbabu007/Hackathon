@@ -29,13 +29,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtInputName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="50dp">
 
                 <EditText
                     android:id="@+id/customeret"
                     style="@style/modifiedEditText"
                     android:hint="@string/customer_name"
                     android:singleLine="true"
+                    android:textSize="18sp"
                     android:autofillHints="@string/customer_name"
                     android:inputType="textPersonName" />
 
@@ -45,20 +46,21 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtInputEmail"
                 android:layout_width="wrap_content"
-                android:layout_height="155dp">
+                android:layout_height="170dp">
 
                 <TextView
                     android:id="@+id/txtdate"
                     android:layout_marginStart="5dp"
                     android:textColor="@color/colorPrimary"
                     style="@style/modifiedEditText"
+                    android:textSize="18sp"
                     android:text="@string/date" />
 
                 <DatePicker
                     android:id="@+id/date"
                     style="@style/modifiedEditText"
                     android:layout_width="340dp"
-                    android:layout_height="161dp"
+                    android:layout_height="155dp"
                     android:calendarViewShown="false"
                     android:datePickerMode="spinner"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -73,6 +75,7 @@
                     android:id="@+id/txtspinner"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="5dp"
+                    android:textSize="18sp"
                     android:textColor="@color/colorPrimary"
                     style="@style/modifiedEditText"
                     android:text="@string/spinner" />
@@ -80,7 +83,7 @@
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/timeslotspinner"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:entries="@array/timeslotlist"
                     android:prompt="@string/time"
                     style="@style/modifiedEditText"
@@ -97,6 +100,7 @@
                     android:id="@+id/phone_number"
                     style="@style/modifiedEditText"
                     android:layout_marginBottom="6dp"
+                    android:textSize="18sp"
                     android:hint="@string/phone_no"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
