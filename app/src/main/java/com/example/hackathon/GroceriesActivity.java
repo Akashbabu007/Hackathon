@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
@@ -69,9 +71,11 @@ public class GroceriesActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groceries);
-//        Toolbar myToolbar = (Toolbar) findViewById(R.id.grocery_toolbar);
-//        myToolbar.setTitle("Token Form");
-//        myToolbar.setTitleTextColor(Color.WHITE);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.grocery_toolbar);
+        myToolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        myToolbar.setTitle("Places");
+        myToolbar.setTitleTextColor(Color.WHITE);
+
         cd = new ConnectionDetector(getApplicationContext());
 
         // Check if Internet present

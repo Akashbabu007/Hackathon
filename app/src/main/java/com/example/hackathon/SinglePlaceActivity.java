@@ -3,12 +3,16 @@ package com.example.hackathon;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
 
 public class SinglePlaceActivity extends Activity {
     // flag for Internet connection status
@@ -43,6 +47,10 @@ public class SinglePlaceActivity extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_place);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.single_place_toolbar);
+        toolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        toolbar.setTitle("Place Details");
+        toolbar.setTitleTextColor(Color.WHITE);
 
         Intent i = getIntent();
 
@@ -54,22 +62,22 @@ public class SinglePlaceActivity extends Activity {
         map = findViewById(R.id.button2);
         gps = new GPSTracker(this);
 
-//           map.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View arg0) {
-//                Intent i = new Intent(getApplicationContext(),
-//                       PlacesMapActivity.class);
-//                // Sending user current geo location
-//                i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
-//                i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
-//
-//                // passing near places to map activity
-//                i.putExtra("near_places", nearPlaces);
-//                // staring activity
-//                startActivity(i);
-//            }
-//        });
+           map.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(getApplicationContext(),
+                       MapsActivity.class);
+                // Sending user current geo location
+                i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
+                i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
+
+                // passing near places to map activity
+                i.putExtra("near_places", nearPlaces);
+                // staring activity
+                startActivity(i);
+            }
+        });
     }
 
 

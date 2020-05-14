@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/centre_background">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/button_grocery"
         android:layout_width="324dp"
         android:layout_height="99dp"
-        app:cardBackgroundColor="@color/lightwhite"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="16dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
         android:id="@+id/button_vegetables"
         android:layout_width="324dp"
         android:layout_height="99dp"
-        app:cardBackgroundColor="@color/lightwhite"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="16dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

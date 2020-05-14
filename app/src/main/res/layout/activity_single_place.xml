@@ -2,71 +2,104 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background"
-    android:padding="10dip">
+    android:background="@drawable/centre_background">
 
     <!-- Name Label -->
-    <TextView
-        android:text="Name:"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/single_place_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:textColor="@color/white"
-        android:layout_marginBottom="5dip"
-        android:textStyle="bold"/>
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </LinearLayout>
 
-    <!--  Name Value -->
-    <TextView
-        android:id="@+id/name"
-        android:textColor="@color/white"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="330dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="16dp">
 
-    <!-- Address Label -->
-    <TextView
-        android:text="Address:"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:textColor="@color/white"
-        android:layout_marginBottom="5dip"
-        android:textStyle="bold"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <TextView
+                android:text="Name:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:textColor="@color/black"
+                android:layout_marginBottom="5dip"
+                android:textStyle="bold"/>
 
-    <!--  Address Value -->
-    <TextView
-        android:id="@+id/address"
-        android:textColor="@color/white"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+            <!--  Name Value -->
+            <TextView
+                android:id="@+id/name"
+                android:textColor="@color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
 
-    <!-- Phone Number Label -->
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dip"/>
+            <!-- Address Label -->
+            <TextView
+                android:text="Address:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:textColor="@color/black"
+                android:layout_marginBottom="5dip"
+                android:textStyle="bold"/>
+
+            <!--  Address Value -->
+            <TextView
+                android:id="@+id/address"
+                android:textColor="@color/black"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Phone Number Label -->
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dip"/>
 
 
-    <!-- Location Value -->
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginTop="15dip"
-        android:layout_marginBottom="5dip"/>
+            <!-- Location Value -->
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="15dip"
+                android:layout_marginBottom="5dip"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_marginTop="10sp"
-        android:layout_width="250dp"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:text="Show Places On Map"
-        android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/button2"
+                android:layout_marginTop="70sp"
+                android:layout_width="250dp"
+                android:background="@drawable/centre_button"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:text="Show Places On Map"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
 
 
 </LinearLayout>

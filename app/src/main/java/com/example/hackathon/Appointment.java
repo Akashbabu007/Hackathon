@@ -1,7 +1,10 @@
 package com.example.hackathon;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,18 +48,25 @@ public class Appointment extends AppCompatActivity {
     Button showDetails;
     public static String KEY_REFERENCE = "reference";
 
+    ProgressDialog progressDialog;
+    private Handler progressbarHandler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment1);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        myToolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        myToolbar.setTitle("Token Form");
+        myToolbar.setTitleTextColor(Color.WHITE);
 
         Intent intent = getIntent();
         final String reference = intent.getStringExtra(KEY_REFERENCE);
-     storename=intent.getStringExtra("name"); //Getting the store name from the Groceries Activity
-       hash=storename.split(",");
+        storename=intent.getStringExtra("name"); //Getting the store name from the Groceries Activity
+        hash=storename.split(",");
         hash1=hash[1].split("=");
         hash1[1]=hash1[1].substring(0,hash1[1].length()-1);
-       Log.d("NAME OF STORE",hash1[1]);
+        Log.d("NAME OF STORE",hash1[1]);
 //        storenametv=(TextView)findViewById(R.id.storenametv);
 //        storenametv.setText(hash1[1]);
         showDetails = findViewById(R.id.show_details_button);
@@ -65,19 +76,19 @@ public class Appointment extends AppCompatActivity {
         phonenumberet=(EditText)findViewById(R.id.phone_number);
         timeslotspinner = (Spinner) findViewById(R.id.timeslotspinner); //Spinner
         timeslotspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-                if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
-                } else {
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
-                }
-            }
+                                                      @Override
+                                                      public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                                                          if (parent.getItemAtPosition(position).equals("Choose a Time Slot")) {
+                                                          } else {
+                                                              String item = parent.getItemAtPosition(position).toString();
+                                                              Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+                                                          }
+                                                      }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        }
+                                                      @Override
+                                                      public void onNothingSelected(AdapterView<?> adapterView) {
+                                                      }
+                                                  }
         );
         showDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +101,14 @@ public class Appointment extends AppCompatActivity {
         submitbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
+
+
                 firebaseInstance = FirebaseDatabase.getInstance();
                 firebaseDatabase = firebaseInstance.getReference();
-                final String store=hash1[1];  String name;
+                final String store=hash1[1];  final String name;
                 if (TextUtils.isEmpty(userId)) {
                     userId = firebaseDatabase.push().getKey();
                 }
@@ -122,9 +138,9 @@ public class Appointment extends AppCompatActivity {
                 SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
                 Date d = new Date(year, month, day);
                 final String strDate = dateFormatter.format(d);
-               // String strDate=date.getYear();
-              final String time= timeslotspinner.getSelectedItem().toString();
-              final String phonenumber=phonenumberet.getText().toString();
+                // String strDate=date.getYear();
+                final String time= timeslotspinner.getSelectedItem().toString();
+                final String phonenumber=phonenumberet.getText().toString();
                 final Customer user = new Customer(name,strDate,time,store,phonenumber);
                 if(name.equals("") || time.equals("Choose a time slot") || phonenumber.equals("")) {
                     Toast.makeText(getApplicationContext(),"Enter all the Credentials",Toast.LENGTH_LONG).show();
@@ -134,6 +150,23 @@ public class Appointment extends AppCompatActivity {
                 }
                 else {
 //                    firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
+                    progressDialog = new ProgressDialog(view.getContext());
+                    progressDialog.setCancelable(true);
+                    progressDialog.setMessage("Generating Token...");
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progressDialog.show();
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            progressDialog.dismiss();
+                        }
+                    }).start();
                     DatabaseReference newreference = null;
                     if (newreference == null) {
                         newreference = FirebaseDatabase.getInstance().getReference();
@@ -147,11 +180,19 @@ public class Appointment extends AppCompatActivity {
                             Log.d("Children Count", stringsize);
                             if(size == 50) {
                                 Toast.makeText(getApplicationContext(),"Sorry its full.Check with different time slot",Toast.LENGTH_LONG).show();
+                                customernameet.setText("");
+                                phonenumberet.setText("");
                             }
                             else {
-                                Toast.makeText(getApplicationContext(),"Inserted successfully",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Token generated successfully",Toast.LENGTH_LONG).show();
                                 firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
-                                Intent intent = new Intent(Appointment.this,TokenActivity.class);
+                                Intent intent = new Intent(Appointment.this, TokenActivity.class);
+                                intent.putExtra("Name",name);
+                                intent.putExtra("Date",strDate);
+                                intent.putExtra("Time",time);
+                                intent.putExtra("Phone",phonenumber);
+                                intent.putExtra("StoreName",store);
+                                Log.i("Name",customernameet.getText().toString());
                                 startActivity(intent);
 
                             }
@@ -164,27 +205,29 @@ public class Appointment extends AppCompatActivity {
                     });
                 }
 
-              // addUserChangeListener(store,strDate,time);
+                // addUserChangeListener(store,strDate,time);
 
-               // MongoClientURI uri = new MongoClientURI("mongodb+srv://Aadhitya:Tn58ac8308%40@cluster0-dnezo.mongodb.net/SuperMarket?retryWrites=true&w=majority");
-               // MongoClient client = new MongoClient(uri);
+                // MongoClientURI uri = new MongoClientURI("mongodb+srv://Aadhitya:Tn58ac8308%40@cluster0-dnezo.mongodb.net/SuperMarket?retryWrites=true&w=majority");
+                // MongoClient client = new MongoClient(uri);
                 //MongoDatabase db = client.getDatabase(uri.getDatabase());
                 //MongoClientURI uri  = new MongoClientURI("mongodb+srv://Aadhitya:Tn58ac8308%40@cluster0-dnezo.mongodb.net/SuperMarket?retryWrites=true&w=majority");
                 //MongoClient client = new MongoClient(uri);
                 //MongoDatabase db = client.getDatabase(uri.getDatabase());
                 // Log.d("Database Name",db.getName());
-               // MongoLabSaveContact tsk = new MongoLabSaveContact();
+                // MongoLabSaveContact tsk = new MongoLabSaveContact();
                 //tsk.execute();
 
                 //FirebaseDatabase database = FirebaseDatabase.getInstance().getReference();
-               // Log.d("Database Name",database.toString());
-               // DatabaseReference myRef = database.getReference().child("Name");
+                // Log.d("Database Name",database.toString());
+                // DatabaseReference myRef = database.getReference().child("Name");
 
                 //myRef.setValue("Defne");
             }
         });
 
     }
+
+
    /* private void addUserChangeListener(String store,String date,String time) {
         // User data change listener
         firebaseDatabase.child(store+"/"+date+"/"+time).addValueEventListener(new ValueEventListener() {
