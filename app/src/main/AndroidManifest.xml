@@ -26,6 +26,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/fixanappointment"
         android:supportsRtl="true"
+
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
 
@@ -56,7 +57,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:noHistory="true"/>
         <activity
             android:name=".VegetablesActivity"
             android:label="@string/places_list"
@@ -64,12 +66,14 @@
         <activity
             android:name=".GroceriesActivity"
             android:label="@string/places_list"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Appointment"
             android:label="@string/title_activity_appointment"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
+            android:noHistory="true"
             tools:ignore="LockedOrientationActivity"/>
 
         <activity android:name=".SinglePlaceActivity"
@@ -81,6 +85,7 @@
             android:label="Token Summary"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
+            android:noHistory="true"
             tools:ignore="LockedOrientationActivity"/>
 
         <provider

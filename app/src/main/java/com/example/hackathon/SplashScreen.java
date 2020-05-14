@@ -31,6 +31,7 @@ public class SplashScreen extends AppCompatActivity {
 //        imageView.startAnimation(animation);
 
         iconSplash = findViewById(R.id.imageView3);
+
         rotateAnimation();
 
         LogoLauncher logolauncher = new LogoLauncher();

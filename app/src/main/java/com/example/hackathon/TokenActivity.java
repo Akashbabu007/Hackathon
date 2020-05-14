@@ -480,9 +480,11 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
 
 
   public void onBackPressed() {
-        // super.onBackPressed();
+        super.onBackPressed();
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
+        finish();
+
 
     }
 }

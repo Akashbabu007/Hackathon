@@ -41,13 +41,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+
         if (pressbacktwice + TIME_INTERVAL > System.currentTimeMillis())
         {
             super.onBackPressed();
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
             return;
         }
         else { Toast.makeText(getBaseContext(), "Tap back button again in order to exit", Toast.LENGTH_SHORT).show(); }
 
         pressbacktwice = System.currentTimeMillis();
     }
+
+
 }
