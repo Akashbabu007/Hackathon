@@ -1,7 +1,9 @@
 package com.example.hackathon;
 
 public class Customer {
+public Customer() {
 
+}
     public String getName() {
         return name;
     }

@@ -174,14 +174,25 @@ public class Appointment extends AppCompatActivity {
                     newreference.child(store + "/" + strDate + "/" + time).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           
 
+                           for(DataSnapshot Snapshot :dataSnapshot.getChildren()) {
+                            Log.v("Phone numbers",Snapshot.getKey());
+                           }
                             int size = (int) dataSnapshot.getChildrenCount();
+                            size=size+1;
                             String stringsize = Integer.toString(size);
                             Log.d("Children Count", stringsize);
-                            if(size == 50) {
-                                Toast.makeText(getApplicationContext(),"Sorry its full.Check with different time slot",Toast.LENGTH_LONG).show();
+                            if(dataSnapshot.child(phonenumber).exists()){
+                                Toast.makeText(getApplicationContext(),"Customer already registered for this slot",Toast.LENGTH_LONG).show();
                                 customernameet.setText("");
                                 phonenumberet.setText("");
+                                Log.i("Exists customer","true");
+
+                            }
+                            else if(size == 50) {
+                                Toast.makeText(getApplicationContext(),"Sorry its full.Check with different time slot",Toast.LENGTH_LONG).show();
+
                             }
                             else {
                                 Toast.makeText(getApplicationContext(),"Token generated successfully",Toast.LENGTH_LONG).show();
