@@ -195,7 +195,7 @@ public class Appointment extends AppCompatActivity {
                                             }
                                         }
                                         if(flag[0]) {
-                                            Toast.makeText(getApplicationContext(), "Already entered", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "User not allowed to book more than one slot a day ", Toast.LENGTH_LONG).show();
                                             flag[0] = false;
                                         }
                                         else {
