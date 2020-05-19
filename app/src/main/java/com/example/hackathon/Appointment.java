@@ -99,7 +99,7 @@ public class Appointment extends AppCompatActivity {
         });
         submitbutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
 
 
@@ -127,8 +127,7 @@ public class Appointment extends AppCompatActivity {
                         }
                     }
                 }*/
-
-                name=customernameet.getText().toString();
+                 name=customernameet.getText().toString();
                 int day = date.getDayOfMonth();
                 int month = date.getMonth() ;
                 int year = date.getYear();
@@ -150,61 +149,90 @@ public class Appointment extends AppCompatActivity {
                 }
                 else {
 //                    firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
-                    progressDialog = new ProgressDialog(view.getContext());
-                    progressDialog.setCancelable(true);
-                    progressDialog.setMessage("Generating Token...");
-                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    progressDialog.show();
 
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.sleep(2000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            progressDialog.dismiss();
-                        }
-                    }).start();
                     DatabaseReference newreference = null;
                     if (newreference == null) {
                         newreference = FirebaseDatabase.getInstance().getReference();
                     }
+
+                    final boolean[] flag = {false};
+
                     newreference.child(store + "/" + strDate + "/" + time).addListenerForSingleValueEvent(new ValueEventListener() {
+
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                           
 
-                           for(DataSnapshot Snapshot :dataSnapshot.getChildren()) {
-                            Log.v("Phone numbers",Snapshot.getKey());
-                           }
+                            for (DataSnapshot Snapshot : dataSnapshot.getChildren()) {
+                                Log.v("Phone numbers", Snapshot.getKey());
+                            }
                             int size = (int) dataSnapshot.getChildrenCount();
-                            size=size+1;
+                            size = size + 1;
                             String stringsize = Integer.toString(size);
                             Log.d("Children Count", stringsize);
-                            if(dataSnapshot.child(phonenumber).exists()){
-                                Toast.makeText(getApplicationContext(),"Customer already registered for this slot",Toast.LENGTH_LONG).show();
+                            if (dataSnapshot.child(phonenumber).exists()) {
+                                Toast.makeText(getApplicationContext(), "Customer already registered for this slot", Toast.LENGTH_LONG).show();
                                 customernameet.setText("");
                                 phonenumberet.setText("");
-                                Log.i("Exists customer","true");
+                                Log.i("Exists customer", "true");
 
-                            }
-                            else if(size == 50) {
-                                Toast.makeText(getApplicationContext(),"Sorry its full.Check with different time slot",Toast.LENGTH_LONG).show();
-
+                            } else if (size == 50) {
+                                Toast.makeText(getApplicationContext(), "Sorry its full.Check with different time slot", Toast.LENGTH_LONG).show();
                             }
                             else {
-                                Toast.makeText(getApplicationContext(),"Token generated successfully",Toast.LENGTH_LONG).show();
-                                firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
-                                Intent intent = new Intent(Appointment.this, TokenActivity.class);
-                                intent.putExtra("Name",name);
-                                intent.putExtra("Date",strDate);
-                                intent.putExtra("Time",time);
-                                intent.putExtra("Phone",phonenumber);
-                                intent.putExtra("StoreName",store);
-                                Log.i("Name",customernameet.getText().toString());
-                                startActivity(intent);
+                                DatabaseReference newreference1 = null;
+                                if(newreference1==null) {
+                                    newreference1 = FirebaseDatabase.getInstance().getReference();
+                                }
+                                newreference1.child(store).child(strDate).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if(dataSnapshot != null) {
+                                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                                if (dataSnapshot1.child(phonenumber).exists()) {
+                                                    flag[0] = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if(flag[0]) {
+                                            Toast.makeText(getApplicationContext(), "Already entered", Toast.LENGTH_LONG).show();
+                                            flag[0] = false;
+                                        }
+                                        else {
+                                            progressDialog = new ProgressDialog(view.getContext());
+                                            progressDialog.setCancelable(true);
+                                            progressDialog.setMessage("Generating Token...");
+                                            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                                            progressDialog.show();
+
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Thread.sleep(2000);
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    progressDialog.dismiss();
+                                                }
+                                            }).start();
+                                            Toast.makeText(getApplicationContext(), "Token generated successfully", Toast.LENGTH_LONG).show();
+                                            firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
+                                            Intent intent = new Intent(Appointment.this, TokenActivity.class);
+                                            intent.putExtra("Name", name);
+                                            intent.putExtra("Date", strDate);
+                                            intent.putExtra("Time", time);
+                                            intent.putExtra("Phone", phonenumber);
+                                            intent.putExtra("StoreName", store);
+                                            Log.i("Name", customernameet.getText().toString());
+                                            startActivity(intent);
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
 
                             }
                         }
@@ -236,6 +264,16 @@ public class Appointment extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        customernameet.setText("");
+        phonenumberet.setText("");
+        String A =timeslotspinner.getAdapter().getItem(0).toString();
+
+        Log.i("String",A);
     }
 
 
