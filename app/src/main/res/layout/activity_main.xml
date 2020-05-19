@@ -47,6 +47,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="72dp"
                 android:text="@string/grocery_text"
+                android:fontFamily="@font/lobsterregular"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +108,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="64dp"
                 android:text="@string/vegetable_text"
+                android:fontFamily="@font/lobsterregular"
                 android:textColor="@color/black"
                 android:textSize="23sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -135,4 +137,29 @@
     </androidx.cardview.widget.CardView>
 
 
+    <TextView
+        android:id="@+id/marquee1"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:textSize="30dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="5dip"
+        android:freezesText="true"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:scrollHorizontally="true"
+        android:fadingEdge = "horizontal"
+        android:singleLine="true"
+        android:textColor="#FF0000"
+        android:text="------Stay Home-----Stay Safe---------"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_vegetables"
+     />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -173,7 +173,7 @@
 
                 <Button
                     android:id="@+id/buttonscreenshot"
-                    android:layout_width="100dp"
+                    android:layout_width="103dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:layout_marginStart="0dp"

@@ -1,8 +1,10 @@
 package com.example.hackathon;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -58,7 +60,8 @@ public class Appointment extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle("Token Form");
         myToolbar.setTitleTextColor(Color.WHITE);
-
+        //Typeface typeface = Typeface.createFromAsset(getApplication().getAssets(), "fonts/lobsterregular.ttf");
+        myToolbar.setTitleTextAppearance(this, R.style.AppTheme_PopupOverlay);
         Intent intent = getIntent();
         final String reference = intent.getStringExtra(KEY_REFERENCE);
         storename=intent.getStringExtra("name"); //Getting the store name from the Groceries Activity

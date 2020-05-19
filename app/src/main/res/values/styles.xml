@@ -7,30 +7,36 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/abril</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/abril</item>
     </style>
 
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
         <item name="colorControlNormal">@color/whiteTextColor</item>
+        <item name="android:fontFamily">@font/abril</item>
     </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+    <item name="android:fontFamily">@font/abril</item>
+    </style>
 
 
 
     <style name="parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/abril</item>
     </style>
 
     <style name="modifiedEditText" parent="parent">
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
-
+        <item name="android:fontFamily">@font/abril</item>
         <item name="android:backgroundTint">@color/primaryTextColor</item>
     </style>
 
@@ -44,11 +50,16 @@
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/abril</item>
     </style>
 
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/abril</item>
+    </style>
+    <style name="Lobsterregular">
+        <item name="android:fontFamily">@font/lobsterregular</item>
     </style>
 
 </resources>

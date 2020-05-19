@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:fitsSystemWindows="true"
+
         android:theme="@style/AppTheme.AppBarOverlay"
+
         android:background="@drawable/centre_background">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -20,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -46,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                app:titleTextAppearance="@font/abril"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>

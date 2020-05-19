@@ -72,7 +72,7 @@ public class GroceriesActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groceries);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.grocery_toolbar);
-        myToolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        myToolbar.setBackgroundColor(Color.parseColor("#800080"));
         myToolbar.setTitle("Places");
         myToolbar.setTitleTextColor(Color.WHITE);
 

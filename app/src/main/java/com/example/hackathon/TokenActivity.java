@@ -336,7 +336,7 @@ public class TokenActivity extends AppCompatActivity implements TextToSpeech.OnI
     class SendEmailAsyncTask extends AsyncTask<String, Void, Boolean> {
 
 
-        GMailSender m = new GMailSender("aadhitya98@gmail.com", "tn58ac8308@");
+        GMailSender m = new GMailSender("firefliesthe4@gmail.com", "tn58ac8308");
         public SendEmailAsyncTask() {
 
         }

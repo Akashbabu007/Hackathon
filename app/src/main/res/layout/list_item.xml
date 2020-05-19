@@ -35,11 +35,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="@font/rye"
         android:padding="10dip"
-        android:textColor="@color/black"
+        android:textColor="#800080"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="" />
 </LinearLayout>
 </androidx.cardview.widget.CardView>
     <Space
