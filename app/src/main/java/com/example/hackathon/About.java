@@ -23,7 +23,7 @@ public class About extends AppCompatActivity {
         about.setBackgroundColor(Color.parseColor("#1F5BF3"));
         AboutPage aboutPage = new AboutPage(getApplicationContext())
                 .isRTL(false)
-                .setImage(R.mipmap.fixanappointment)
+                .setImage(R.mipmap.bookmystore)
                 .setDescription(getString(R.string.about_us_description))
                 .addItem(new Element("Version " + BuildConfig.VERSION_NAME, R.drawable.ic_info))
                 .addGroup("Connect with us")

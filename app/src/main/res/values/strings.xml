@@ -1,7 +1,7 @@
 <resources>
 
     <string name="Choose">What do you want?</string>
-    <string name="app_name">Book My Store</string>
+    <string name="app_name">BookMyStore</string>
     <string name="content_splash">Image of splash screen</string>
     <string name="content_vegetable">Vegetable image</string>
     <string name="content_grocery">Grocery Image</string>
@@ -28,7 +28,7 @@
     <string name="grocery_text">Super Markets</string>
     <string name="check_details">Tap to check details</string>
     <string name="vegetable_text">Shopping Malls</string>
-    <string name="places_list">Places</string>
+    <string name="places_list">Nearby Stores</string>
     <string name="phone_no">Phone Number</string>
     <string name="customer_name_text">Customer Name</string>
     <string name="date">Date</string>
@@ -42,8 +42,8 @@
     <string name="details">Place Details</string>
     <string name="screenshot">Screenshot</string>
     <string name="about">About</string>
-    <string name="about_us_description">This application is meant for maintaining social distancing and as well to get your necessities without any fuzz. </string>
+    <string name="about_us_description">This application is meant for maintaining social distancing as well as to get your necessities without any fuzz. </string>
     <string name="FACEBOOK_ID">https://www.facebook.com/aadhitya.aadhi.9/</string>
-    <string name="GMAIL_ID">aadhitya98@gmail.com</string>
+    <string name="GMAIL_ID">firefliesthe4@gmail.com</string>
 
 </resources>

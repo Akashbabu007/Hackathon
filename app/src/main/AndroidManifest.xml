@@ -22,9 +22,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/fixanappointment"
+        android:icon="@mipmap/bookmystore"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/fixanappointment"
+        android:roundIcon="@mipmap/bookmystore"
         android:supportsRtl="true"
 
         android:requestLegacyExternalStorage="true"

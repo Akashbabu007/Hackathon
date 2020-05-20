@@ -73,7 +73,7 @@ public class GroceriesActivity extends Activity {
         setContentView(R.layout.activity_groceries);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.grocery_toolbar);
         myToolbar.setBackgroundColor(Color.parseColor("#800080"));
-        myToolbar.setTitle("Places");
+        myToolbar.setTitle("NearBy Stores");
         myToolbar.setTitleTextColor(Color.WHITE);
 
         cd = new ConnectionDetector(getApplicationContext());
