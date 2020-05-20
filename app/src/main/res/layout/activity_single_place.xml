@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/centre_background">
+    android:background="@drawable/gradient_background">
 
     <!-- Name Label -->
     <LinearLayout
@@ -87,7 +87,7 @@
                 android:layout_marginTop="70sp"
                 android:layout_width="250dp"
                 android:background="@drawable/centre_button"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content"
                 android:text="Show Place On Map"
                 android:layout_gravity="center"/>

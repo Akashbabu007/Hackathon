@@ -13,20 +13,22 @@
         android:layout_height="250dp"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="@drawable/centre_background">
+        android:background="@drawable/gradient_background">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@style/expanded"
+            app:expandedTitleTextAppearance="@style/AppTheme.PopupOverlay"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/centre_background">
+                android:background="@drawable/gradient_background">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -40,12 +42,18 @@
 
             </RelativeLayout>
 
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbars1"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+
+
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

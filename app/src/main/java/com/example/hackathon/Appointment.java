@@ -1,10 +1,8 @@
 package com.example.hackathon;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -60,8 +58,7 @@ public class Appointment extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         myToolbar.setTitle("Token Form");
         myToolbar.setTitleTextColor(Color.WHITE);
-        //Typeface typeface = Typeface.createFromAsset(getApplication().getAssets(), "fonts/lobsterregular.ttf");
-        myToolbar.setTitleTextAppearance(this, R.style.AppTheme_PopupOverlay);
+
         Intent intent = getIntent();
         final String reference = intent.getStringExtra(KEY_REFERENCE);
         storename=intent.getStringExtra("name"); //Getting the store name from the Groceries Activity
@@ -104,7 +101,23 @@ public class Appointment extends AppCompatActivity {
             @Override
             public void onClick(final View view) {
 
+                progressDialog = new ProgressDialog(view.getContext());
+                progressDialog.setCancelable(true);
+                progressDialog.setMessage("Generating Token...");
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDialog.show();
 
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        progressDialog.dismiss();
+                    }
+                }).start();
 
 
 
@@ -202,23 +215,7 @@ public class Appointment extends AppCompatActivity {
                                             flag[0] = false;
                                         }
                                         else {
-                                            progressDialog = new ProgressDialog(view.getContext());
-                                            progressDialog.setCancelable(true);
-                                            progressDialog.setMessage("Generating Token...");
-                                            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                                            progressDialog.show();
 
-                                            new Thread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    try {
-                                                        Thread.sleep(2000);
-                                                    } catch (InterruptedException e) {
-                                                        e.printStackTrace();
-                                                    }
-                                                    progressDialog.dismiss();
-                                                }
-                                            }).start();
                                             Toast.makeText(getApplicationContext(), "Token generated successfully", Toast.LENGTH_LONG).show();
                                             firebaseDatabase.child(store + "/" + strDate + "/" + time + "/" + phonenumber).push().setValue(user.getName());
                                             Intent intent = new Intent(Appointment.this, TokenActivity.class);

@@ -1,7 +1,7 @@
 <resources>
 
     <string name="Choose">What do you want?</string>
-    <string name="app_name">Fix An Appointment</string>
+    <string name="app_name">Book My Store</string>
     <string name="content_splash">Image of splash screen</string>
     <string name="content_vegetable">Vegetable image</string>
     <string name="content_grocery">Grocery Image</string>

@@ -50,9 +50,10 @@ public class SinglePlaceActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_place);
         Toolbar toolbar = (Toolbar) findViewById(R.id.single_place_toolbar);
-        toolbar.setBackgroundColor(Color.parseColor("#1F5BF3"));
+        toolbar.setBackgroundColor(Color.parseColor("#800080"));
         toolbar.setTitle("Place Details");
         toolbar.setTitleTextColor(Color.WHITE);
+
 
         Intent i = getIntent();
 
